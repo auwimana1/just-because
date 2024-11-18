@@ -10,11 +10,10 @@ pipeline{
             steps{
                 script{
                     // This step should not normally be used in your script. Consult the inline help for details.
-                    withDockerRegistry(credentialsId: 'ecr:us-east-1:JB-creds', url: 'https://ec2-54-227-13-39.compute-1.amazonaws.com/') {
+                    withDockerRegistry(credentialsId: 'ecr:us-east-1:JB-creds', url: 'https://557195342730.dkr.ecr.us-east-1.amazonaws.com/') {
                     sh "docker build -t just-because-ecr:${params.DevOps-Engineer} ."
                     sh "docker tag just-because-ecr:${params.DevOps-Engineer} 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:${params.DevOps-Engineer}"
                     sh "docker tag just-because-ecr:${params.DevOps-Engineer} 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:latest"
-                    sh "docker push 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:${params.DevOps-Engineer}"
                     sh "docker push 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:latest"
 }
                 }

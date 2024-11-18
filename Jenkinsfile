@@ -20,5 +20,10 @@ pipeline{
                 }
             }
         }
+        stage("update image to ecs"){
+            steps{
+                    sh "aws ecs update-service --cluster Just-BEcz-Cluster --service JB-SERVICE --force-new-deployment"
+            }
+        }
     }
 }

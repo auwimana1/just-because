@@ -13,7 +13,7 @@ pipeline{
                     withDockerRegistry(credentialsId: 'ecr:us-east-1:JB-Credentials', url: 'https://557195342730.dkr.ecr.us-east-1.amazonaws.com/') {
 
                     sh "docker build -t just-because-ecr:${params.DevOps} ."
-                    sh "docker tag just-because-ecr:${params.DevOps} 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:${params.DevOps"
+                    sh "docker tag just-because-ecr:${params.DevOps} 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:${params.DevOps}"
                     sh "docker tag just-because-ecr:${params.DevOps} 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:latest"
                     sh "docker push 557195342730.dkr.ecr.us-east-1.amazonaws.com/just-because-ecr:latest"
 }
